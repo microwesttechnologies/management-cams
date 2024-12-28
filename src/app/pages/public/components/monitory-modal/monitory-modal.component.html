@@ -1,0 +1,38 @@
+<app-modal [customStylesBody]="{ 'grid-template-rows': '1fr auto' }" size="sm">
+  <div class="content-modal-body">
+    <div class="row">
+      <div class="col col-xs-12 col-md-6 mb-100-rem">
+        <app-select
+          [configSelect]="{
+            placeholder: 'Seleccionar zona',
+            fieldText: 'name',
+            fieldId: 'id',
+            id: 'zone'
+          }"
+        >
+          <label for="zone" labelSelect> Zona</label>
+        </app-select>
+      </div>
+      <div class="col col-xs-12 col-md-6 mb-100-rem">
+        <app-select
+          [configSelect]="{
+            placeholder: 'Seleccionar camara',
+            fieldText: 'name',
+            fieldId: 'id',
+            id: 'camera'
+          }"
+        >
+          <label for="camera" labelSelect> Camara</label>
+        </app-select>
+      </div>
+    </div>
+  </div>
+  <div class="content-modal-footer">
+    <app-button
+      classes="primary-button bg-danger width-fit-content"
+      (eventButtonClick)="closeModal()"
+    >
+      Cerrar
+    </app-button>
+  </div>
+</app-modal>

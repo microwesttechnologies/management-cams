@@ -1,0 +1,59 @@
+<app-modal [customStylesBody]="{ 'grid-template-rows': '1fr auto' }" size="lg">
+  <div class="content-modal-body">
+    <h3 class="font-title-large mb-100-rem">Intervalo de fechas</h3>
+    <div class="row height-100">
+      <div class="col col-xs-6 col-md-4 col-lg-3 mb-100-rem">
+        <app-input type="date" id="initialDate">
+          <label for="initialDate" labelInput> Fecha inicial </label>
+        </app-input>
+      </div>
+      <div class="col col-xs-6 col-md-4 col-lg-3 mb-100-rem">
+        <app-input type="date" id="finalDate">
+          <label for="finalDate" labelInput> Fecha final </label>
+        </app-input>
+      </div>
+      <div class="col col-xs-6 col-md-4 col-lg-3 mb-100-rem">
+        <app-select
+          [configSelect]="{
+            placeholder: 'Seleccionar zona',
+            fieldText: 'name',
+            fieldId: 'id',
+            id: 'zone'
+          }"
+        >
+          <label for="zone" labelSelect> Zona</label>
+        </app-select>
+      </div>
+      <div class="col col-xs-6 col-md-4 col-lg-3 mb-100-rem">
+        <app-select
+          [configSelect]="{
+            placeholder: 'Seleccionar camara',
+            fieldText: 'name',
+            fieldId: 'id',
+            id: 'camera'
+          }"
+        >
+          <label for="camera" labelSelect> Camara</label>
+        </app-select>
+      </div>
+      <div class="col height-100 width-100">
+        <app-table gridHeaderColumns="10rem 10rem 10rem 1fr">
+          <ng-container tableHeader>
+            <p class="font-subtitle-large">Fecha</p>
+            <p class="font-subtitle-large">Zona</p>
+            <p class="font-subtitle-large">Camara</p>
+            <p class="font-subtitle-large">Observaciones</p>
+          </ng-container>
+        </app-table>
+      </div>
+    </div>
+  </div>
+  <div class="content-modal-footer">
+    <app-button
+      classes="primary-button bg-danger width-fit-content"
+      (eventButtonClick)="closeModal()"
+    >
+      Cerrar
+    </app-button>
+  </div>
+</app-modal>

@@ -1,0 +1,26 @@
+<div class="container-dashboard-module row">
+  @if(isInChildrenView){
+  <button
+    (click)="selectedListCards = listCards; isInChildrenView = false"
+    [configTooltip]="{ position: 'right' }"
+    class="action-back"
+    appTooltip="Volver"
+    @slideEnterLeft
+    type="button"
+  >
+    <i class="fa-solid fa-chevron-left"></i>
+  </button>
+  } @for(card of selectedListCards; track i; let i = $index){
+  <div
+    class="secondary-card center-all col-auto"
+    (keypress.enter)="selectCard(card)"
+    (click)="selectCard(card)"
+    @slideEnterDown
+    tabindex="-1"
+  >
+    <h3 class="font-title-large">{{ card.text }}</h3>
+  </div>
+  }
+</div>
+
+<router-outlet></router-outlet>
